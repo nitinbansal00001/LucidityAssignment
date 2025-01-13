@@ -17,13 +17,13 @@ public class Main {
         Order order2 = new Order(customerLocation2, restaurantLocation2, preparationTime2);
 
         DeliveryStrategy defaultDeliveryStrategy = new DefaultDeliveryStrategy();
-        double minTime1 = defaultDeliveryStrategy.calculateTotalTime(Arrays.asList(order1, order2), deliveryPersonLocation);
-        System.out.println("Time to deliver using default delivery strategy : " + minTime1);
+        double minTimeUsingDefaultStrategy = defaultDeliveryStrategy.calculateTotalTime(Arrays.asList(order1, order2), deliveryPersonLocation);
+        System.out.println("Time to deliver using default delivery strategy : " + minTimeUsingDefaultStrategy);
 
         DeliveryStrategy batchDeliveryStrategy = new BatchDeliveryStrategy();
-        double minTime2 = batchDeliveryStrategy.calculateTotalTime(Arrays.asList(order1, order2), deliveryPersonLocation);
-        System.out.println("Time to deliver using batch delivery strategy : " + minTime2);
+        double minTimeUsingBatchStrategy = batchDeliveryStrategy.calculateTotalTime(Arrays.asList(order1, order2), deliveryPersonLocation);
+        System.out.println("Time to deliver using batch delivery strategy : " + minTimeUsingBatchStrategy);
 
-        System.out.println("\nMinimum time to deliver both orders : " + Math.min(minTime1, minTime2));
+        System.out.println("\nMinimum time to deliver both orders : " + Math.min(minTimeUsingDefaultStrategy, minTimeUsingBatchStrategy));
     }
 }
